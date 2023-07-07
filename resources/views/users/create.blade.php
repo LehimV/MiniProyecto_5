@@ -25,7 +25,8 @@
         <select name="role" id="role" class="form-control">
           <option value="1">Admin</option>
           <option value="2">Maestro</option>
-          <option value="3" selected>Alumno</option>
+          <option value="3">Alumno</option>
+          <option value="4">Tutor</option>
         </select>
       </div>
     </div>

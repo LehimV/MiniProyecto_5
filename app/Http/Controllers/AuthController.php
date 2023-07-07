@@ -31,13 +31,13 @@ class AuthController extends Controller
       'password' => Hash::make($request->password),
       'role' => $request->role
     ];
-
+    /*
     if (!auth()->check()) {
-      // Si el usuario no está autenticado (es decir, se está registrando desde el login)
-      // Se establece el valor predeterminado del campo 'role' como 3
-      $userData['role'] = 3;
+      // Si el usuario se está registrando desde el login
+      // Se establece el valor predeterminado del campo 'role' como 3/4
+      $userData['role'] = 4;
     }
-
+*/
     User::create($userData);
 
     return redirect()->route('login');

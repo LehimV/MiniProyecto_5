@@ -69,6 +69,7 @@
                       <label for="role">Role</label>
                       <select name="role" id="role" class="form-control">
                         <option value="3" selected>Alumno</option>
+                        <option value="4" selected>Tutor</option>
                       </select>
                     </div>
 
