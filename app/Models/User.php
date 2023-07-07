@@ -11,8 +11,8 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-  use HasRoles;
-  use HasApiTokens, HasFactory, Notifiable;
+  //use HasRoles;
+  use HasRoles, HasApiTokens, HasFactory, Notifiable;
 
 
 
@@ -25,7 +25,7 @@ class User extends Authenticatable
     'name',
     'email',
     'password',
-    'role',
+    //'role',
   ];
 
   /**
