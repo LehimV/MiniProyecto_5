@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 
 
-class UserController extends Controller
+class MaestroController extends Controller
 {
   /**
    * Display a listing of the resource.
@@ -18,21 +18,8 @@ class UserController extends Controller
   {
     $user = User::orderBy('created_at', 'DESC')->get();
 
-    return view('users.index', compact('user'));
+    return view('maestros.index', compact('maestro'));
   }
-
-  ////BUSCADOR
-  public function search(Request $request)
-  {
-    $search = $request->input('search');
-
-    $user = User::where('name', 'LIKE', '%' . $search . '%')->get();
-
-    return view('users.index', compact('user'));
-  }
-
-
-
 
   /**
    * Show the form for creating a new resource.

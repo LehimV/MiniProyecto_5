@@ -3,10 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MaestroController;
 
 Route::get('/', function () {
   return view('welcome');
 });
+
 
 Route::controller(AuthController::class)->group(function () {
   Route::get('register', 'register')->name('register');
@@ -24,6 +26,7 @@ Route::middleware('auth')->group(function () {
   })->name('dashboard');
 
   Route::controller(UserController::class)->prefix('users')->group(function () {
+    Route::get('/users/search', [UserController::class, 'search'])->name('users.search');
     Route::get('', 'index')->name('users');
     Route::get('create', 'create')->name('users.create');
     Route::post('store', 'store')->name('users.store');
