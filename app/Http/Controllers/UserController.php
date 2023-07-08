@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+//use Database\Seeders\RoleSeeder;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
+
 
 class UserController extends Controller
 {
@@ -30,7 +34,29 @@ class UserController extends Controller
    */
   public function store(Request $request)
   {
-    User::create($request->all());
+    // Validar 
+    $validatedData = $request->validate([
+      'name' => 'required|string',
+      'email' => 'required|email|unique:users',
+      'password' => 'required|min:8',
+      'role' => 'required|numeric',
+    ]);
+
+    // Crear
+    $user = new User();
+    $user->name = $validatedData['name'];
+    $user->email = $validatedData['email'];
+    $user->password = Hash::make($validatedData['password']);
+
+    // Obtiene y asigna el rol con el formulario
+    $role = Role::findOrFail($validatedData['role']);
+
+    // Asigna rol
+    $user->assignRole($role);
+
+    // Guardar
+    $user->save();
+
 
     return redirect()->route('users')->with('success', 'User added successfully');
   }
@@ -62,11 +88,20 @@ class UserController extends Controller
   {
     $user = User::findOrFail($id);
 
-
     $user->name = $request->input('name');
     $user->email = $request->input('email');
     $user->password = bcrypt($request->input('password'));
-    $user->role = $request->input('role');
+
+    // Obtén el nuevo rol seleccionado del formulario
+    $newRole = Role::findOrFail($request->input('role'));
+
+    // Obtén el rol actual del usuario
+    $currentRole = $user->roles->first();
+
+    // Si el nuevo rol es diferente al actual, actualiza el rol del usuario
+    if ($newRole->id !== $currentRole->id) {
+      $user->syncRoles($newRole);
+    }
 
     $user->save();
 

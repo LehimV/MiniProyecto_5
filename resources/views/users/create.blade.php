@@ -19,6 +19,7 @@
     <div class="col">
       <input type="password" name="password" class="form-control" placeholder="Password">
     </div>
+
     <div class="col">
       <div class="form-group">
         <label for="role">Role</label>
@@ -30,6 +31,7 @@
         </select>
       </div>
     </div>
+
   </div>
 
   <div class="row">

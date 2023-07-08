@@ -26,6 +26,11 @@
         <img src="../U-Logo.svg" class="card-img-top" style="width: 12rem;" alt="">
       </div>
       <div class="col-xl-10 col-lg-12 col-md-9">
+        @if(Session::has('success'))
+        <div class="alert alert-success" role="alert">
+          {{ Session::get('success') }}
+        </div>
+        @endif
         <div class="card o-hidden border-0 shadow-lg my-3">
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->

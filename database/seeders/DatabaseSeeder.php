@@ -19,11 +19,12 @@ class DatabaseSeeder extends Seeder
     //Usuarios base
     $this->call(UserSeeder::class);
 
-
+    /*
     \App\Models\User::factory(2)->create()->each(function ($user) {
       $user->assignRole('tutor');
+      
     });
-
+    */
 
     // \App\Models\User::factory()->create([
     //     'name' => 'Test User',

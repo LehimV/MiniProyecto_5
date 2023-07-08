@@ -23,8 +23,10 @@
       <label class="form-label">Prassword</label>
       <input type="password" name="password" class="form-control" placeholder="Password" value="{{ $user->password }}">
     </div>
+
     <div class="col mb-3">
       <label class="form-label">Role</label>
+
       <select name="role" class="form-control">
         <option value="1" {{ $user->role == 1 ? 'selected' : '' }}>Admin</option>
         <option value="2" {{ $user->role == 2 ? 'selected' : '' }}>Maestro</option>

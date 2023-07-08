@@ -21,14 +21,33 @@
   <li class="nav-item">
     <a class="nav-link" href="{{ route('users') }}">
       <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>User</span></a>
+      <span>Usuarios</span></a>
   </li>
 
   <li class="nav-item">
     <a class="nav-link" href="/profile">
       <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Profile</span></a>
+      <span>Maestros</span></a>
   </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="/profile">
+      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <span>Alumnos</span></a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="/profile">
+      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <span>Materias</span></a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="/profile">
+      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <span>Relaciones</span></a>
+  </li>
+
 
   <!-- Divider -->
   <hr class="sidebar-divider d-none d-md-block">
