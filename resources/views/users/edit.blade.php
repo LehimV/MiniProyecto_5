@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Edit User')
+@section('title', 'USUARIOS')
 
 @section('contents')
-<h1 class="mb-0">Edit User</h1>
+<h1 class="mb-0">Editar Usuario</h1>
 <hr />
 <form action="{{ route('users.update', $user->id) }}" method="POST">
   @csrf
@@ -19,12 +19,14 @@
     </div>
   </div>
   <div class="row">
-    <div class="col mb-3">
+    <div class="col-lg-4 mb-3">
       <label class="form-label">Prassword</label>
       <input type="password" name="password" class="form-control" placeholder="Password" value="{{ $user->password }}">
     </div>
-    <div class="col mb-3">
+
+    <div class="col-lg-2 mb-3">
       <label class="form-label">Role</label>
+
       <select name="role" class="form-control">
         <option value="1" {{ $user->role == 1 ? 'selected' : '' }}>Admin</option>
         <option value="2" {{ $user->role == 2 ? 'selected' : '' }}>Maestro</option>
@@ -39,8 +41,8 @@
 
 
   <div class="row">
-    <div class="d-grid">
-      <button class="btn btn-warning">Update</button>
+    <div class="col">
+      <button class="btn btn-warning text-white fw-bold">Actualizar</button>
     </div>
   </div>
 </form>

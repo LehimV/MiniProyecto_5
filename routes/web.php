@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CursoController;
+use App\Http\Controllers\RelacionController;
 
 Route::get('/', function () {
   return view('welcome');
@@ -19,11 +21,19 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+  Route::resource('cursos', CursoController::class)->except(['show']);
+  Route::get('cursos', [CursoController::class, 'index'])->name('cursos');
+
+  Route::resource('relacion', RelacionController::class)->except(['show']);
+  Route::get('relaciones', [RelacionController::class, 'index'])->name('relaciones');
+
+
   Route::get('dashboard', function () {
     return view('dashboard');
   })->name('dashboard');
 
   Route::controller(UserController::class)->prefix('users')->group(function () {
+    Route::get('/users/search', [UserController::class, 'search'])->name('users.search');
     Route::get('', 'index')->name('users');
     Route::get('create', 'create')->name('users.create');
     Route::post('store', 'store')->name('users.store');

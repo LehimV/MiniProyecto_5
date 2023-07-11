@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
+use Spatie\Permission\Models\Role;
+
 
 class AuthController extends Controller
 {
@@ -28,20 +30,20 @@ class AuthController extends Controller
     $userData = [
       'name' => $request->name,
       'email' => $request->email,
-      'password' => Hash::make($request->password),
-      'role' => $request->role
+      'password' => Hash::make($request->password)
     ];
-    /*
-    if (!auth()->check()) {
-      // Si el usuario se está registrando desde el login
-      // Se establece el valor predeterminado del campo 'role' como 3/4
-      $userData['role'] = 4;
-    }
-*/
-    User::create($userData);
 
-    return redirect()->route('login');
+    $user = User::create($userData);
+
+    // Obtén el rol seleccionado del formulario
+    $role = Role::findOrFail($request->role);
+
+    // Asigna el rol al usuario
+    $user->assignRole($role);
+
+    return redirect()->route('login')->with('success', 'El registro se completó correctamente, inicie sesion');
   }
+
 
 
 

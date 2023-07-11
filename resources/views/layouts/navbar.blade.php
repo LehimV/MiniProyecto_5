@@ -6,21 +6,65 @@
   </button>
 
   <!-- Topbar Search -->
-  <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+  <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="{{ route('users.search') }}" method="GET">
     <div class="input-group">
-      <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+      <input type="text" class="form-control bg-light border-0 small" name="search" placeholder="Buscar Nombre" aria-label="Search" aria-describedby="basic-addon2">
       <div class="input-group-append">
-        <button class="btn btn-primary" type="button">
+        <button class="btn btn-primary" type="submit">
           <i class="fas fa-search fa-sm"></i>
         </button>
       </div>
     </div>
   </form>
 
+
+  <script>
+    /*
+    document.addEventListener('DOMContentLoaded', function() {
+      // Obtener elementos del DOM
+      const searchInput = document.getElementById('user-search-input');
+      const searchButton = document.getElementById('user-search-button');
+      const searchResults = document.getElementById('user-search-results');
+
+      searchButton.addEventListener('click', function() {
+        const searchTerm = searchInput.value.trim();
+
+        if (searchTerm.length > 0) {
+          fetch(`/users/search?q=${encodeURIComponent(searchTerm)}`)
+            .then(response => response.json())
+            .then(data => {
+              // Limpiar los resultados anteriores
+              searchResults.innerHTML = '';
+
+              // Mostrar los nuevos resultados
+              data.forEach(user => {
+                const row = document.createElement('tr');
+                const nameCell = document.createElement('td');
+                const emailCell = document.createElement('td');
+
+                nameCell.textContent = user.name;
+                emailCell.textContent = user.email;
+
+                row.appendChild(nameCell);
+                row.appendChild(emailCell);
+
+                searchResults.appendChild(row);
+              });
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+        }
+      });
+    });
+    */
+  </script>
+
+
   <!-- Topbar Navbar -->
   <ul class="navbar-nav ml-auto">
 
-    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+    <!-- Nav Item - BUSCADOR -->
     <li class="nav-item dropdown no-arrow d-sm-none">
       <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-search fa-fw"></i>

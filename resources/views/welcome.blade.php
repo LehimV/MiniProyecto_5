@@ -104,7 +104,7 @@
   <!-- Footer-->
   <footer class="py-5 bg-black">
     <div class="container px-5">
-      <p class="m-0 text-center text-white small">Copyright &copy; ProyectoFinal_5-MLVL FUNVAL2023 Made whit Laravel + Breeze</p>
+      <p class="m-0 text-center text-white small">Copyright &copy; MiniProyecto_5-MLVL FUNVAL2023 // Made whit Laravel Breeze</p>
     </div>
   </footer>
 

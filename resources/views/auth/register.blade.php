@@ -24,6 +24,7 @@
         <img src="../U-Logo.svg" class="card-img-top" style="width: 12rem;" alt="">
       </div>
       <div class="col-xl-10 col-lg-12 col-md-9">
+
         <div class="card o-hidden border-0 shadow-lg my-3">
           <div class="card-body p-0">
 

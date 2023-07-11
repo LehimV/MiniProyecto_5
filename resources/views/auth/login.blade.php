@@ -14,6 +14,7 @@
 
   <!-- Custom styles for this template-->
   <link href="{{ asset('admin_assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
+
 </head>
 
 <body class="bg-light bg-gradient">
@@ -23,18 +24,23 @@
     <!-- Outer Row -->
     <div class="row justify-content-center">
       <div class="img-container  mt-5">
-        <img src="../U-Logo.svg" class="card-img-top" style="width: 12rem;" alt="">
+        <img src="../U-Logo.svg" class="img-fluid" style="width: 12rem;" alt="">
       </div>
-      <div class="col-xl-10 col-lg-12 col-md-9">
+      <div class="col-xl-10 col-lg-12 col-md-12">
+        @if(Session::has('success'))
+        <div class="alert alert-success" role="alert">
+          {{ Session::get('success') }}
+        </div>
+        @endif
         <div class="card o-hidden border-0 shadow-lg my-3">
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
             <div class="row">
-              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-              <div class="col-lg-6">
+              <div class="col-lg-6 col-md-4 bg bg-login-image"></div>
+              <div id="col_login" class="col-lg-6 col-md-8">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                    <h1 class="text-black mb-4">Welcome Back!</h1>
                   </div>
                   <form action="{{ route('login.action') }}" method="POST" class="user">
                     @csrf
@@ -47,8 +53,9 @@
                       </ul>
                     </div>
                     @endif
-                    <div class="form-group">
-                      <input name="email" type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                    <div class="form-group text-black fw-bold fs-1">
+                      <span class="">Enter Email Adress</span>
+                      <input name="email" type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." style="background-color: rgba(255, 255, 255, 0.8);">
                     </div>
                     <div class="form-group">
                       <input name="password" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
@@ -69,6 +76,49 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card o-hidden border-0 shadow-lg my-3">
+          <h4>Acceso:</h4>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">level</th>
+                <th scope="col">user</th>
+                <th scope="col">pass</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>lehim@admin</td>
+                <td>password</td>
+              </tr>
+
+              <tr>
+                <th scope="row">2</th>
+                <th>lehim@maestro</th>
+                <td>password</td>
+              </tr>
+
+              <tr>
+                <th scope="row">3</th>
+                <th>lehim@alumno</th>
+                <td>password</td>
+              </tr>
+
+              <tr>
+                <th scope="row">4</th>
+                <th>lehim@tutor</th>
+                <td>password</td>
+              </tr>
+
+            </tbody>
+          </table>
+
         </div>
       </div>
     </div>
