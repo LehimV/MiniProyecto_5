@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-07-2023 a las 04:21:57
+-- Tiempo de generación: 11-07-2023 a las 19:10:51
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -40,10 +40,13 @@ CREATE TABLE `cursos` (
 --
 
 INSERT INTO `cursos` (`id`, `name_curso`, `level`, `updated_at`, `created_at`) VALUES
-(3, 'Robotica 1', 'L3', '2023-07-11 07:42:23.000000', '0000-00-00 00:00:00.000000'),
-(5, 'Modelado 3D', 'L4', '2023-07-11 06:55:59.000000', '2023-07-11 06:55:59.000000'),
-(6, 'Animación 2D', 'L2', '2023-07-11 07:35:10.000000', '2023-07-11 06:57:54.000000'),
-(7, 'Metodologia2', 'L2', '2023-07-11 07:58:17.000000', '2023-07-11 07:58:04.000000');
+(1, 'Robotica 1', 'L3', '2023-07-11 07:42:23.000000', '0000-00-00 00:00:00.000000'),
+(2, 'Informatica 1', 'L1', '2023-07-11 14:33:14.000000', '2023-07-11 14:33:14.000000'),
+(3, 'Metodologia', 'L1', '2023-07-11 14:33:30.000000', '2023-07-11 14:33:30.000000'),
+(4, 'Metodologia2', 'L3', '2023-07-11 14:33:40.000000', '2023-07-11 14:33:40.000000'),
+(15, 'Test1', 'L1', '2023-07-11 14:44:14.000000', '2023-07-11 14:44:14.000000'),
+(16, 'Test2', 'L2', '2023-07-11 20:53:59.000000', '2023-07-11 20:53:59.000000'),
+(18, 'Informatica 2', 'L2', '2023-07-11 23:07:07.000000', '2023-07-11 23:07:07.000000');
 
 -- --------------------------------------------------------
 
@@ -117,7 +120,10 @@ INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 (1, 'App\\Models\\User', 10),
 (2, 'App\\Models\\User', 2),
 (2, 'App\\Models\\User', 13),
+(2, 'App\\Models\\User', 19),
 (3, 'App\\Models\\User', 3),
+(3, 'App\\Models\\User', 18),
+(3, 'App\\Models\\User', 20),
 (4, 'App\\Models\\User', 4),
 (4, 'App\\Models\\User', 5),
 (4, 'App\\Models\\User', 11);
@@ -194,6 +200,18 @@ CREATE TABLE `relaciones` (
   `updated_at` timestamp(6) NULL DEFAULT NULL,
   `created_at` timestamp(6) NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `relaciones`
+--
+
+INSERT INTO `relaciones` (`id`, `curso_id`, `maestro_id`, `alumno_id`, `updated_at`, `created_at`) VALUES
+(1, '4', '19', '3', '2023-07-11 14:43:52.000000', '2023-07-11 14:43:52.000000'),
+(2, '15', '2', '18', '2023-07-11 15:09:08.000000', '2023-07-11 14:44:25.000000'),
+(10, '16', '19', '3', '2023-07-11 20:54:12.000000', '2023-07-11 20:54:12.000000'),
+(11, '16', '19', '18', '2023-07-11 20:54:24.000000', '2023-07-11 20:54:24.000000'),
+(12, '2', '2', '20', '2023-07-11 23:06:49.000000', '2023-07-11 23:06:49.000000'),
+(13, '18', '2', '18', '2023-07-11 23:07:37.000000', '2023-07-11 23:07:25.000000');
 
 -- --------------------------------------------------------
 
@@ -278,7 +296,10 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (5, 'Finn Schuster', 'deshaun31@example.net', '2023-07-08 05:33:25', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'NHD0v7k6aD', '2023-07-08 05:33:25', '2023-07-08 05:33:25'),
 (10, 'Mau', 'mau@admin', NULL, '$2y$10$hhVIZHhb2ac47h3R1NGoy.g39yc/8l.Ix3z0N45AS4VZE204HlR7a', NULL, '2023-07-08 09:53:44', '2023-07-08 09:53:44'),
 (11, 'Mauri', 'mauri@mauri', NULL, '$2y$10$/X6JjW0homvE3gTehi3X6uG2zG/qhX5GEjaUTfvW9QxZxbTx9Lnoq', NULL, '2023-07-08 10:19:59', '2023-07-08 10:41:58'),
-(13, 'Mau3', 'mau@3', NULL, '$2y$10$RnaXVENeKiRuALY7yGKU0uAdJG2MbYVkN.KL1tQ4zyzsta/GGOt7C', NULL, '2023-07-08 10:23:57', '2023-07-08 10:23:57');
+(13, 'Mau3', 'mau@3', NULL, '$2y$10$RnaXVENeKiRuALY7yGKU0uAdJG2MbYVkN.KL1tQ4zyzsta/GGOt7C', NULL, '2023-07-08 10:23:57', '2023-07-08 10:23:57'),
+(18, 'Alumno2', 'alumno@2', NULL, '$2y$10$zIL0V.7jWRMEoQq9cQKW4eQu9FTheHM85RszWaMwm24IGMXe1lcoa', NULL, '2023-07-11 11:33:42', '2023-07-11 11:33:42'),
+(19, 'Master1', 'master@1', NULL, '$2y$10$oLeYI6LHUG5gRN/eIvc7FOUcS03RJK1gX7ZKf7lmPdnnmpDk0e0Mu', NULL, '2023-07-11 11:34:06', '2023-07-11 11:34:06'),
+(20, 'Alumno3', 'alumno@3', NULL, '$2y$10$euI3m5jZlNE2SeUBPwgHFOj3Id/AekxH9tEbv8..yMhc6wWjK77U2', NULL, '2023-07-11 20:57:01', '2023-07-11 20:57:01');
 
 --
 -- Índices para tablas volcadas
@@ -373,7 +394,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `cursos`
 --
 ALTER TABLE `cursos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `failed_jobs`
@@ -403,7 +424,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT de la tabla `relaciones`
 --
 ALTER TABLE `relaciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -415,7 +436,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Restricciones para tablas volcadas
