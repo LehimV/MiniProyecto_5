@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 
-@section('title', 'Home User')
+@section('title', 'USUARIOS')
 
 @section('contents')
 
 
 <div class="d-flex align-items-center justify-content-between">
-  <h1 class="mb-0">List Users</h1>
+  <h1 class=" mb-0 me-4">List Users</h1>
   @can('users.create')
-  <a href="{{ route('users.create') }}" class="btn btn-primary">Add User</a>
+  <a href="{{ route('users.create') }}" class="btn btn-success"><i class="fas fa fa-plus"></i> Nuevo Usuario</a>
   @endcan
 </div>
 <hr />
@@ -22,8 +22,8 @@
   <thead class="table-primary">
     <tr>
       <th>#</th>
-      <th>Role</th>
-      <th>Name</th>
+      <th>Rol</th>
+      <th>Nombre</th>
       @can('users.edit')
       <th>Email</th>
       <th>Password</th>
@@ -49,14 +49,14 @@
         <div class="gap-2" role="group" aria-label="Basic example">
 
           @can('users.edit')
-          <a href="{{ route('users.edit', $rs->id)}}" type="button" class="btn btn-warning">Edit</a>
+          <a href="{{ route('users.edit', $rs->id)}}" type="button" class="btn btn-warning"><i class="fas fa fa-pencil-square-o"></i> Edit</a>
           @endcan
 
           @can('users.destroy')
           <form action="{{ route('users.destroy', $rs->id) }}" method="POST" type="button" class="btn btn-danger p-0" onsubmit="return confirm('Delete?')">
             @csrf
             @method('DELETE')
-            <button class="btn btn-danger m-0">Delete</button>
+            <button class="btn btn-danger m-0"><i class="fas fa fa-trash"></i> Delete</button>
           </form>
           @endcan
         </div>

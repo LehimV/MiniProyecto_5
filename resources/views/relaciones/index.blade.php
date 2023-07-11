@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 
-@section('title', 'Relaciones')
+@section('title', 'RELACIONES')
 
 @section('contents')
 
@@ -9,7 +9,7 @@
 <div class="d-flex align-items-center justify-content-between">
   <h1 class="mb-0">Relaciones</h1>
   @can('users.create')
-  <a href="{{ route('relacion.create') }}" class="btn btn-primary">Crear Relacion</a>
+  <a href="{{ route('relacion.create') }}" class="btn btn-success"><i class="fas fa fa-plus"></i> Crear Relacion</a>
   @endcan
 </div>
 <hr />

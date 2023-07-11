@@ -18,7 +18,7 @@ class UserController extends Controller
   {
     $user = User::orderBy('name', 'DESC')->get();
 
-    return view('users.index', compact('user'));
+    return view('users/index', compact('user'));
   }
 
   ////BUSCADOR
@@ -28,7 +28,7 @@ class UserController extends Controller
 
     $user = User::where('name', 'LIKE', '%' . $search . '%')->get();
 
-    return view('users.index', compact('user'));
+    return view('users/index', compact('user'));
   }
 
 
@@ -39,7 +39,7 @@ class UserController extends Controller
    */
   public function create()
   {
-    return view('users.create');
+    return view('users/create');
   }
 
   /**
@@ -81,7 +81,7 @@ class UserController extends Controller
   {
     $user = User::findOrFail($id);
 
-    return view('users.show', compact('user'));
+    return view('users/show', compact('user'));
   }
 
   /**
@@ -91,7 +91,7 @@ class UserController extends Controller
   {
     $user = User::findOrFail($id);
 
-    return view('users.edit', compact('user'));
+    return view('users/edit', compact('user'));
   }
 
   /**

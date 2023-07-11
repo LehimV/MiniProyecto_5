@@ -19,9 +19,6 @@ class RelacionController extends Controller
     return view('relaciones.index', compact('relaciones'));
   }
 
-
-
-
   /**
    * Show the form for creating a new resource.
    */
@@ -33,7 +30,6 @@ class RelacionController extends Controller
 
     return view('relaciones.create', compact('cursos', 'maestros', 'alumnos'));
   }
-
 
   /**
    * Store a newly created resource in storage.

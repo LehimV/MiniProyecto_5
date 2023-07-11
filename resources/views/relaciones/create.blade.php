@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Añadir Nueva Relación')
+@section('title', 'RELACION')
 
 @section('contents')
 <h1 class="mb-0">Añadir nueva Relación</h1>
@@ -9,7 +9,7 @@
   @csrf
 
   <div class="row mb-3">
-    <div class="col">
+    <div class="col-lg-4">
       <select name="curso_id" class="form-control">
         <option value="" selected disabled>Seleccionar Curso</option>
         @foreach($cursos as $curso)
@@ -17,7 +17,9 @@
         @endforeach
       </select>
     </div>
+  </div>
 
+  <div class="row mb-3">
     <div class="col">
       <select name="maestro_id" class="form-control">
         <option value="" selected disabled>Seleccionar Maestro</option>
@@ -35,14 +37,12 @@
         @endforeach
       </select>
     </div>
-
-
   </div>
 
 
   <div class="row">
-    <div class="d-grid">
-      <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="col">
+      <button type="submit" class="btn btn-outline-info fw-bold">Crear</button>
     </div>
   </div>
 

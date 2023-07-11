@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Cursos')
+@section('title', 'CURSOS')
 
 @section('contents')
 <div class="d-flex align-items-center justify-content-between">
-  <h1 class="mb-0">Lista de Cursos</h1>
+  <h1 class="mb-0 me-4">Lista de Cursos</h1>
   @can('users.create')
-  <a href="{{ route('cursos.create') }}" class="btn btn-primary">Agregar Curso</a>
+  <a href="{{ route('cursos.create') }}" class="btn btn-success"><i class="fas fa fa-plus"></i> Agregar Curso</a>
   @endcan
 </div>
 <hr />
@@ -42,7 +42,7 @@
           <form action="{{ route('cursos.destroy', $curso->id) }}" method="POST" type="button" class="btn btn-danger p-0" onsubmit="return confirm('Delete?')">
             @csrf
             @method('DELETE')
-            <button class="btn btn-danger m-0">Delete</button>
+            <button class="btn btn-danger m-0"><i class="fas fa fa-trash"></i> Delete</button>
           </form>
           @endcan
         </div>
