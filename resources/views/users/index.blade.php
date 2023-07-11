@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
+
 @section('title', 'Home User')
 
 @section('contents')
+
+
 <div class="d-flex align-items-center justify-content-between">
   <h1 class="mb-0">List Users</h1>
   @can('users.create')
@@ -15,7 +18,7 @@
   {{ Session::get('success') }}
 </div>
 @endif
-<table class="table table-hover">
+<table id="user-table" class="table table-hover">
   <thead class="table-primary">
     <tr>
       <th>#</th>
@@ -66,5 +69,19 @@
     </tr>
     @endif
   </tbody>
+  <tfoot>
+    <tr>
+      <th>#</th>
+      <th>Role</th>
+      <th>Name</th>
+      @can('users.edit')
+      <th>Email</th>
+      <th>Password</th>
+      <th class="d-flex">Edit / Delete</th>
+      @endcan
+    </tr>
+  </tfoot>
 </table>
+
+
 @endsection

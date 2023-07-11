@@ -24,22 +24,11 @@
       <span>Usuarios</span></a>
   </li>
 
-  <li class="nav-item">
-    <a class="nav-link" href="/profile">
-      <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Maestros</span></a>
-  </li>
 
   <li class="nav-item">
-    <a class="nav-link" href="/profile">
+    <a class="nav-link" href="{{ route('cursos') }}">
       <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Alumnos</span></a>
-  </li>
-
-  <li class="nav-item">
-    <a class="nav-link" href="/profile">
-      <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Materias</span></a>
+      <span>Cursos</span></a>
   </li>
 
   <li class="nav-item">
