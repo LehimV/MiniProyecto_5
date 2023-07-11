@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Relacion;
 use Illuminate\Http\Request;
 
+use App\Models\Curso;
+use App\Models\User;
+
 class RelacionController extends Controller
 {
   /**
@@ -12,18 +15,25 @@ class RelacionController extends Controller
    */
   public function index()
   {
-    $relaciones = Relacion::all();
-
+    $relaciones = Relacion::with(['curso', 'maestro', 'alumno'])->get();
     return view('relaciones.index', compact('relaciones'));
   }
+
+
+
 
   /**
    * Show the form for creating a new resource.
    */
   public function create()
   {
-    return view('relaciones.create');
+    $cursos = Curso::all();
+    $maestros = User::role('Maestro')->get();
+    $alumnos = User::role('Alumno')->get();
+
+    return view('relaciones.create', compact('cursos', 'maestros', 'alumnos'));
   }
+
 
   /**
    * Store a newly created resource in storage.
@@ -47,9 +57,12 @@ class RelacionController extends Controller
   public function edit($id)
   {
     $relacion = Relacion::findOrFail($id);
+    $maestros = User::role('Maestro')->get();
+    $alumnos = User::role('Alumno')->get();
 
-    return view('relaciones.edit', compact('relacion'));
+    return view('relaciones.edit', compact('relacion', 'maestros', 'alumnos'));
   }
+
 
   /**
    * Update the specified resource in storage.
@@ -58,15 +71,17 @@ class RelacionController extends Controller
   {
     $validatedData = $request->validate([
       'maestro_id' => 'required|exists:users,id',
-      'curso_id' => 'required|exists:cursos,id',
       'alumno_id' => 'required|exists:users,id',
     ]);
 
     $relacion = Relacion::findOrFail($id);
-    $relacion->update($validatedData);
+    $relacion->maestro_id = $validatedData['maestro_id'];
+    $relacion->alumno_id = $validatedData['alumno_id'];
+    $relacion->save();
 
     return redirect()->route('relacion.index')->with('success', 'Relación actualizada exitosamente');
   }
+
 
   /**
    * Remove the specified resource from storage.

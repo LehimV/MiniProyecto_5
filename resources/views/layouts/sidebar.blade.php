@@ -32,8 +32,8 @@
   </li>
 
   <li class="nav-item">
-    <a class="nav-link" href="/profile">
-      <i class="fas fa-fw fa-tachometer-alt"></i>
+    <a class="nav-link" href="{{ route('relaciones') }}">
+      <i class=" fas fa-fw fa-tachometer-alt"></i>
       <span>Relaciones</span></a>
   </li>
 

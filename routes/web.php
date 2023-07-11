@@ -10,7 +10,6 @@ Route::get('/', function () {
   return view('welcome');
 });
 
-
 Route::controller(AuthController::class)->group(function () {
   Route::get('register', 'register')->name('register');
   Route::post('register', 'registerSave')->name('register.save');
@@ -22,10 +21,12 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-
   Route::resource('cursos', CursoController::class)->except(['show']);
   Route::get('cursos', [CursoController::class, 'index'])->name('cursos');
+
   Route::resource('relacion', RelacionController::class)->except(['show']);
+  Route::get('relaciones', [RelacionController::class, 'index'])->name('relaciones');
+
 
   Route::get('dashboard', function () {
     return view('dashboard');
