@@ -75,7 +75,7 @@ class RelacionController extends Controller
     $relacion->alumno_id = $validatedData['alumno_id'];
     $relacion->save();
 
-    return redirect()->route('relacion.index')->with('success', 'Relación actualizada exitosamente');
+    return redirect()->route('relaciones')->with('success', 'Relación actualizada exitosamente');
   }
 
 

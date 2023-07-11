@@ -19,12 +19,13 @@
       <span class="fw-bold fs-6">Dashboard</span></a>
   </li>
 
+  @can('users.create')
   <li class="nav-item">
     <a class="nav-link" href="{{ route('users') }}">
       <i class="fas fa-fw fa-users"></i>
       <span class="fw-bold fs-6">Usuarios</span></a>
   </li>
-
+  @endcan
 
   <li class="nav-item">
     <a class="nav-link" href="{{ route('cursos') }}">

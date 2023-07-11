@@ -69,18 +69,7 @@
     </tr>
     @endif
   </tbody>
-  <tfoot>
-    <tr>
-      <th>#</th>
-      <th>Role</th>
-      <th>Name</th>
-      @can('users.edit')
-      <th>Email</th>
-      <th>Password</th>
-      <th class="d-flex">Edit / Delete</th>
-      @endcan
-    </tr>
-  </tfoot>
+
 </table>
 
 

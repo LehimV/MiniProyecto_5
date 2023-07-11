@@ -13,5 +13,5 @@ use Spatie\Permission\Traits\HasRoles;
 
 class Curso extends Model
 {
-  protected $fillable = ['name'];
+  protected $fillable = ['name', 'level'];
 }

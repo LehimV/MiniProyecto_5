@@ -21,7 +21,9 @@
       <th>#</th>
       <th>Curso</th>
       <th>Nivel</th>
+      @can('users.edit')
       <th class="d-flex">Edit / Delete</th>
+      @endcan
     </tr>
   </thead>
   <tbody id="curso-search-results">

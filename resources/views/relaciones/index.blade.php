@@ -24,9 +24,9 @@
       <th>#</th>
       <th>Curso</th>
       <th>Maestro</th>
-      @can('users.edit')
-      <th>Alumno</th>
 
+      <th>Alumno</th>
+      @can('users.edit')
       <th class="d-flex">Edit / Delete</th>
       @endcan
 
